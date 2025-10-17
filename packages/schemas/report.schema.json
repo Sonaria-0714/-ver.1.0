@@ -1,0 +1,14 @@
+{
+  "type":"object",
+  "required":["you_are","roots_summary","wp_code","ss_name","next_you","future_path","role_fit","meta"],
+  "properties":{
+    "you_are":{"type":"string","maxLength":180},
+    "roots_summary":{"type":"string","maxLength":280},
+    "wp_code":{"type":"string","maxLength":40},
+    "ss_name":{"type":"string","maxLength":40},
+    "next_you":{"type":"array","items":{"type":"string","maxLength":120},"minItems":3,"maxItems":3},
+    "future_path":{"type":"array","items":{"type":"string","maxLength":140},"minItems":3,"maxItems":3},
+    "role_fit":{"type":"object","required":["fit","avoid"],"properties":{"fit":{"type":"string","maxLength":120},"avoid":{"type":"string","maxLength":120}}},
+    "meta":{"type":"object"}
+  }
+}
