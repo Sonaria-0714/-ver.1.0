@@ -1,3 +1,15 @@
+// LLMをスキップして即時返すテスト用スイッチ
+if (process.env.SONALIA_FAKE_LLM === "1") {
+  const scoring = scoreAnswers({ answers36, rtMs }, weights); // ← 既存関数名に合わせる
+  const data = fallback(scoring); // ← 既存の簡易レポート生成に合わせる
+  return j(200, {
+    sessionId: crypto.randomUUID(),
+    report: data,
+    scores: scoring,
+    fake: true
+  });
+}
+
 import OpenAI from "openai";
 import Ajv from "ajv";
 import fs from "fs";
