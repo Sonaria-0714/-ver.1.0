@@ -26,7 +26,9 @@ export const handler = async (event:any) => {
 
     const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY! });
     const resp = await client.responses.create({
-      model: "gpt-5",
+      model: "gpt-5-mini",
+      max_output_tokens: 600,
+      temperature: 0.25,
       input: [
         { role: "system", content: system },
         { role: "user", content: JSON.stringify({ roots, scoring }) }
