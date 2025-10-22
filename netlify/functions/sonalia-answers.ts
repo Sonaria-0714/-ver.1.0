@@ -28,6 +28,7 @@ export const handler = async (event:any) => {
     const resp = await client.responses.create({
       model: "gpt-5-mini",
       max_output_tokens: 600,
+      temperature: null,
       input: [
         { role: "system", content: system },
         { role: "user", content: JSON.stringify({ roots, scoring }) }
